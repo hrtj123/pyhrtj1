@@ -1,7 +1,7 @@
 from django.shortcuts import HttpResponse
-from django.views.decorators.http import require_http_methods
+from django.views.decorators.http import require_safe
 
 
-@require_http_methods(["GET", "POST"])
+@require_safe
 def home(request):
     return HttpResponse("Hello")
