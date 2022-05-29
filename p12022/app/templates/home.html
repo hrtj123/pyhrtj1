@@ -1,0 +1,23 @@
+{% include 'material/includes/material_css.html' %} #These
+two include
+{% include 'material/includes/material_js.html' %} # will
+import material design
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>
+         TUT
+      </title>
+      <style>
+z
+      </style>
+   </head>
+   <body>
+
+      <h2>FORM</h2>
+      <form action="/" method="post">
+         {% csrf_token %}
+         {{ form }}
+         <input type="submit" value="Submit">
+      </form>
+   </body>

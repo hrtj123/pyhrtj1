@@ -1,7 +1,21 @@
-from django.shortcuts import HttpResponse
-from django.views.decorators.http import require_safe
+from django.shortcuts import render
+from django import forms
+from .models import Data
 
 
-@require_safe
+class SalaryForm(forms.ModelForm):
+    class Meta:
+        model = Data
+        fields = "__all__"
+
+
 def home(request):
-    return HttpResponse("Hello")
+    if request.method == 'POST':
+        form = SalaryForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    else:
+        form = SalaryForm()
+
+    return render(request, 'home.html', {'form': form})
